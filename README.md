@@ -1,7 +1,11 @@
 # ts-react-template
 
-TypeScript
-React + Redux + thunk + axios
-antd
-webpack
-eslint
+##TypeScript
+
+##React + Redux + thunk + axios
+
+##antd
+
+##webpack
+
+##eslint
