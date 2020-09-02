@@ -1,0 +1,21 @@
+@mixin charbase($color){
+  white-space: pre;
+  margin: 10px;
+  border-radius: 5px;
+  border: solid 3px $color;
+  width: 200px;
+}
+
+.char {
+  @include charbase(blue);
+  cursor: pointer;
+}
+
+.error{
+  @include charbase(red);
+}
+
+.char:hover {
+  transform: scaleX(1.05);
+  font-weight: bold;
+}
