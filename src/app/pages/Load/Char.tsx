@@ -1,18 +1,19 @@
 import React from 'react';
-import { ICharacter } from '../../api/swapi'
-import './load.scss';
+import { ICharacter } from '../../api/swapi';
+import style from './load.scss';
 interface IProps {
-  char: ICharacter
+  char: ICharacter,
+  setTar(ch: ICharacter): void
 }
 
 const Char: React.FC<IProps> = (props: IProps) => {
   const char:ICharacter = props.char;
   return (
-    <div className = {char.gender === 'n/a' ? 'error' : 'char'} title = {char.name}>
-      Name: {char.name} {'\n'}
-      Gender: {char.gender} {'\n'}
-      Height: {char.height}cm {'\n'}
-      Mass: {char.mass}kg {'\n'}
+    <div onClick = {char.gender === 'n/a' ? () => { alert('Invalid Character') } : () => props.setTar(props.char) }>
+      <div className = {char.gender === 'n/a' ? style.error : style.char} title = {char.name}>
+        Name: {char.name} {'\n'}
+        Gender: {char.gender} {'\n'}
+      </div>
     </div>
   );
 }

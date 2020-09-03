@@ -3,7 +3,8 @@ import { Button, Input } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { IState, IAction, INITACTION, ActionTypes } from '../../store';
 import { Link } from 'react-router-dom';
-import './home.scss'
+import userAuth from '../../api/auth';
+import style from './style.scss';
 
 const Home: React.FC = () => {
   const { age, userId, userName } = useSelector((state: IState) => state);
@@ -29,14 +30,20 @@ const Home: React.FC = () => {
     dispatch(action);
   }
   return (
-    <div className = 'home'>
-      <Input placeholder = 'Your Name' onChange = {handleName} className = 'nameinput'/>
-      <Button onClick = {updateName}>Submit</Button>
-      <div>Hello {userName}, your ID is {userId}, your age is {age}.</div>
-      <Button type = 'primary' onClick = {handleAdd}>Add Age</Button>
-      <Button type= 'primary' danger onClick = {handleMin}>Add Age</Button>
-      <div></div>
-      <Link to ='/load'>Load</Link>
+    <div className = {style.home}>
+      <div className = {style.container}>
+        <Input placeholder = 'Your Name' onChange = {handleName} className = {style.nameinput}/>
+        <Button onClick = {updateName}>Submit</Button>
+        <div>Hello {userName}, your ID is {userId}, your age is {age}.</div>
+        <Button type = 'primary' onClick = {handleAdd}>Add Age</Button>
+        <Button type= 'primary' danger onClick = {handleMin}>Add Age</Button>
+        <div></div>
+        <Link to ='/load'>Load</Link>
+        <div></div>
+        <Link to ='/log'>Log In</Link>
+        <div></div>
+        <Button onClick = {userAuth.clearJWT}>Clear</Button>
+      </div>
     </div>
   );
 }

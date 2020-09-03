@@ -19,3 +19,36 @@
   transform: scaleX(1.05);
   font-weight: bold;
 }
+
+.container {
+  display: flex;
+}
+.side {
+  flex: 1;
+}
+
+.dis{
+  flex: 3;
+
+}
+
+.tag {
+  margin: 50px 20px;
+  height: 300px;
+  width: 500px;
+  border-radius: 10px;
+  border: purple 5px dashed;
+  white-space: pre;
+  font-size: 30px;
+  color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagin{
+  margin: 5px;
+  padding: 5px;
+  border: blue 3px solid;
+  overflow-wrap: normal;
+}

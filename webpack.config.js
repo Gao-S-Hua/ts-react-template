@@ -34,10 +34,11 @@ module.exports = (env) => {
           use: ['babel-loader']
         },
         {
-          test: /\.(scss)$/,
+          test: /\.(s?css)$/,
+          exclude: /node_modules/,
           use: [
             { loader: MiniCssExtractPlugin.loader },
-            'css-loader',
+            { loader: 'css-loader', options: { modules: true, url: true } },
             'sass-loader']
         },
         {

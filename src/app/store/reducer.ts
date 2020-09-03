@@ -2,7 +2,7 @@ import { IAction, IState, ActionTypes } from './index';
 
 const defaultState: IState = {
   userId: '3722',
-  userName: 'Huahua',
+  userName: '',
   age: 28
 }
 
