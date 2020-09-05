@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import userAuth from '../../api/auth';
-import {IAction, ActionTypes, INITACTION} from '../../store'
+import { IAction, ActionTypes, INITACTION } from '../../store'
 
 const TIME_GAP = 1;
 

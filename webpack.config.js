@@ -7,6 +7,12 @@ function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
 }
 
+const proxyConfig = {
+  target: 'http://localhost:3000',
+  secure: false,
+  changeOrigin: true
+}
+
 module.exports = (env) => {
   console.log('Running with ' + env.mode + ' Mode');
   return {
@@ -70,8 +76,12 @@ module.exports = (env) => {
     ],
     devServer: {
       contentBase: path.join(__dirname, 'dist'),
-      port: 3000,
-      open: false
+      port: 8000,
+      open: false,
+      proxy: {
+        '/api/*': proxyConfig,
+        '/user': proxyConfig
+      }
     }
   }
 }
