@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button } from 'antd';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import userAuth from '../../api/auth';
 import { IAction, ActionTypes, INITACTION } from '../../store'
 
 const TIME_GAP = 1;
@@ -12,7 +11,7 @@ const Login: React.FC = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const log = (): void => {
-    userAuth.setJWT();
+    // userAuth.setJWT();
     setJump(true);
     const action: IAction = { ...INITACTION };
     action.type = ActionTypes.ChangeName;

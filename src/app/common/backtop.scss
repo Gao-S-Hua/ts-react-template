@@ -1,0 +1,19 @@
+.backtop{
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 58px;
+  height: 58px;
+  background-color: #36363669;
+  opacity: 0.7;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.img{
+  width: 56px;
+  height: 56px;
+}
+
+.hide{
+  display: none;
+}

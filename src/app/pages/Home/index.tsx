@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { IState, IAction, INITACTION, ActionTypes } from '../../store';
 import { Link } from 'react-router-dom';
 import userAuth from '../../api/auth';
+import BackTop from '../../common/BackTop';
 import style from './style.scss';
 
 const Home: React.FC = () => {
@@ -45,6 +46,7 @@ const Home: React.FC = () => {
         <Link to ='/test'>Test</Link>
         <div></div>
         <Button onClick = {userAuth.clearJWT}>Clear</Button>
+        <BackTop />
       </div>
     </div>
   );
