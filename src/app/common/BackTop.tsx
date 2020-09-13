@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { debounce } from '../util';
 import style from './backtop.scss';
-import img from '../../assets/top.png';
+import img from '../../assets/top.svg';
 
 const BackTop: React.FC = function() {
   const [show, setShow] = useState(false);
@@ -10,7 +10,7 @@ const BackTop: React.FC = function() {
     if (window.scrollY > 50) setShow(true);
     else setShow(false);
   }
-  const debouncedScroll = debounce(handleScroll, 100);
+  const debouncedScroll: any = debounce(handleScroll, 100);
   useEffect(() => {
     window.addEventListener('scroll', debouncedScroll);
     return () => { window.removeEventListener('scroll', debouncedScroll) }

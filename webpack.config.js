@@ -55,9 +55,13 @@ module.exports = (env) => {
           use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
         },
         {
-          test: /\.(png|jpe?g|gif|ico)$/i,
+          test: /\.(png|jpe?g|gif)$/i,
           loader: 'file-loader',
           options: { name: '[name].[ext]' }
+        },
+        {
+          test: /\.(svg|ico)$/i,
+          loader: 'url-loader'
         }
       ]
     },
