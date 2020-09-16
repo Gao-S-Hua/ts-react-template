@@ -1,41 +1,22 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { IAction, ActionTypes, INITACTION } from '../../store';
-import { setJWT } from '../../api/auth';
-import axios from '../../api/ajax';
+import Log from './components/Log';
+import Regist from './components/Regist';
 import style from './log.scss';
 
-const TIME_GAP = 1;
-
 const Login: React.FC = () => {
-  const [jump, setJump] = useState(false);
-  const history = useHistory();
-  const dispatch = useDispatch();
-  const log = (): void => {
-    // userAuth.setJWT();
-    axios.post('/users', {
-      name: 'admin',
-      password: 'admin'
-    }).then((res) => {
-      if (res.data.status === 0) {
-        setJWT(res.data.data.token)
-      }
-    });
-    setJump(true);
-    const action: IAction = { ...INITACTION };
-    action.type = ActionTypes.ChangeName;
-    action.name = 'Huahua';
-    dispatch(action);
-    setTimeout(() => { history.push('/') }, TIME_GAP * 1000);
-  }
+  const [select, setSelect] = useState(true);
 
   return (
     <div className = { style.log }>
-      <h1>Login Page</h1>
-      <Button onClick = {log}>Log In</Button> <br />
-      {jump ? <h3>Login Successful, jumping to Home. . .</h3> : null}
+      <div className = { style.logpanel }>
+        <div className = {style.title}>
+          <span className = {select ? style.select : style.unselect} onClick = { () => setSelect(true) }>Log In</span>
+          <span> * </span>
+          <span className = {select ? style.unselect : style.select} onClick = { () => setSelect(false) }>Register</span>
+        </div>
+        { select ? <Log /> : <Regist /> }
+      </div>
     </div>
   );
 }

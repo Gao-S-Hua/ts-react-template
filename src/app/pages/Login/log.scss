@@ -8,3 +8,73 @@
   left: 0;
   top: 0;
 }
+
+.title{
+  margin: 0 auto;
+  width: 240px;
+  height: 50px;
+}
+
+.select{
+  font-size: 20px;
+  font-weight: bold;
+  color: orange;
+  margin: 0 20px;
+}
+
+.unselect{
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+  margin: 0 20px;
+  cursor: pointer;
+}
+.unselect:hover{
+  color: black;
+}
+
+.logpanel{
+  width: 400px;
+  background-color: white;
+  margin: 80px auto;
+  border-radius: 15px;
+  padding: 50px 20px;
+  box-shadow: 3px 5px gray;
+}
+
+.login{
+  width: 200px;
+  margin: 50px auto 10px auto;
+}
+
+@mixin buttontype{
+  width: 120px;
+  margin: 20px 40px;
+  border-radius: 15px;
+  border: none;
+}
+
+.logbutton{
+  @include buttontype();
+  background-color: #3194d0;
+}
+
+.registbutton{
+  @include buttontype();
+  background-color: orange;
+  &:hover, &:focus {
+    background-color: rgb(249, 198, 103);
+  }
+  &:active, &.active {
+    background-color: rgb(198, 130, 5);
+  }
+}
+
+.err{
+  color: red;
+}
+
+.caution{
+  font-size: 10px;
+  color: gray;
+}
