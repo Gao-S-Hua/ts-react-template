@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from 'antd';
 import Log from './components/Log';
 import Regist from './components/Regist';
 import style from './log.scss';
@@ -13,7 +12,7 @@ const Login: React.FC = () => {
         <div className = {style.title}>
           <span className = {select ? style.select : style.unselect} onClick = { () => setSelect(true) }>Log In</span>
           <span> * </span>
-          <span className = {select ? style.unselect : style.select} onClick = { () => setSelect(false) }>Register</span>
+          <span className = {select ? style.unselect : style.select} onClick = { () => setSelect(false) }>Sign Up</span>
         </div>
         { select ? <Log /> : <Regist /> }
       </div>

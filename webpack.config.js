@@ -84,7 +84,8 @@ module.exports = (env) => {
       open: false,
       proxy: {
         '/api/*': proxyConfig,
-        '/user': proxyConfig
+        '/user': proxyConfig,
+        '/': { target: 'http://localhost:3000', ws: true }
       }
     }
   }

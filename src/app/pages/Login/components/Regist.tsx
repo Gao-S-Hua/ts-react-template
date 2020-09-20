@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Input, Radio, Divider } from 'antd';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import axios from '../../../api/ajax';
 import style from '../log.scss';
 
 const Regist: React.FC = function() {
-  const [type, setType] = useState(1);
+  const [type, setType] = useState(0);
   const [err, setErr] = useState(false);
   const onChange = (e: RadioChangeEvent) => {
     setType(parseInt(e.target.value));
@@ -20,6 +20,16 @@ const Regist: React.FC = function() {
     const pswd2 = pswdNode2 ? pswdNode2.value : '';
     if (pswd === pswd2 && name.length > 1 && pswd.length >= 4) {
       setErr(false);
+      axios.post('/users/signup', {
+        name,
+        password: pswd,
+        type
+      }).then(res => {
+        if (res.data.status === 0) alert('Sign up Successful!');
+        else alert('User Name is Taken, please use other names');
+      }).catch(() => {
+        alert('Sign Up Error');
+      })
     } else {
       setErr(true);
     }
@@ -32,9 +42,9 @@ const Regist: React.FC = function() {
       <Divider />
       Regist Type:
       <Radio.Group onChange = { onChange } value={type}>
-        <Radio value={1}>Normal User</Radio>
+        <Radio value={0}>Normal User</Radio>
         <Radio value={2}>Super User</Radio>
-        <Radio value={3}>Admin User</Radio>
+        <Radio value={1}>Admin User</Radio>
       </Radio.Group>
       <Divider />
       <div className = { style.caution }>

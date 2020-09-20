@@ -45,6 +45,8 @@ const Home: React.FC = () => {
         <div></div>
         <Link to ='/test'>Test</Link>
         <div></div>
+        <Link to ='/listen'>Listen</Link>
+        <div></div>
         <Button onClick = {userAuth.clearJWT}>Clear</Button>
         <BackTop />
       </div>
