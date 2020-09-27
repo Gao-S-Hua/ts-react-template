@@ -82,10 +82,12 @@ module.exports = (env) => {
       contentBase: path.join(__dirname, 'dist'),
       port: 8000,
       open: false,
+      historyApiFallback: true,
       proxy: {
         '/api/*': proxyConfig,
         '/user': proxyConfig,
-        '/': { target: 'http://localhost:3000', ws: true }
+        '/media': proxyConfig,
+        '/record': { target: 'http://localhost:3000', ws: true }
       }
     }
   }

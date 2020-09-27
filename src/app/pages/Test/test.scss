@@ -1,0 +1,36 @@
+.video{
+  width: 80%;
+  margin: 10px 10%;
+}
+.icon{
+  width: 20%;
+  margin: 20px 40%;
+}
+.linkWrapper{
+  width: 80%;
+  margin: 10px 10% 30px 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 120px));
+  row-gap: 10px;
+  column-gap: 5px;
+}
+.link{
+  color: black;
+  border-radius: 15px;
+  background-color: #e6f7ff;
+}
+.link:hover{
+  color: black;
+  font-weight: bold;
+  background-color: #91d5ff; 
+}
+.title{
+  margin: 10px 10%;
+}
+.back{
+  font-size: 25px;
+  margin: 5px 10%;
+}
+.back:hover{
+  color: orange;
+}

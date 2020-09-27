@@ -12,7 +12,7 @@ const RootRouter: React.FC = () => {
         <Route path = '/' exact component = {Home} />
         <Route path = '/load' component = {Load} />
         <Route path = '/log' component = {Log} />
-        <Route path = '/test' component = {Test} />
+        <Route path = '/video/:name' component = {Test} />
         <Route path = '/listen' component = {Listen} />
       </Switch>
     </BrowserRouter>

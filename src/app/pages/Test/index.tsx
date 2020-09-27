@@ -1,51 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { Button } from 'antd';
-import { NewAjax } from '../../api/ajax';
-import { logIn, getUser } from '../../api/user';
+import Video from './Video';
+import styles from './test.scss';
+import img from '../../../assets/movie.svg';
 
-interface ICancel {
-  valid: boolean;
-  call(): void;
-}
+const videoList: string[] = [
+  'CHN-191', 'BGN-060',
+  'cawd-118', 'MSFH-030',
+  'STARS-278', 'mimk-072',
+  'EBOD-762', 'SSNI-752',
+  'miaa-293', 'ABP-999',
+  'FSDSS-080', 'FSDSS-072',
+  'ABP-993', 'fsdss-043',
+  'ABP-989', 'ABP995'
+]
 
-const emptyCancel: ICancel = {
-  valid: false,
-  call: () => { console.log('empty') }
+interface IParams {
+  name: string
 }
 
 const Test: React.FC = () => {
-  const [result, setResult] = useState('');
-  const [cancel, setCancel] = useState(emptyCancel);
-  const handleRequest = () => {
-    const ajax = new NewAjax();
-    const canceller: ICancel = {
-      valid: true,
-      call: ajax.cancel
-    }
-    setCancel(canceller);
-    ajax.ajax.get('https://swapi.dev/api/people/2')
-      .then(res => { setResult(res.data.name) })
-      .catch(err => console.log(err))
-      .finally(() => { setCancel(emptyCancel) })
-  }
-  const handleCancel = () => {
-    if (cancel.valid) cancel.call();
-  }
-  const handleLogin = () => {
-    logIn({ userName: 'huahua', password: '3722' })
-      .then(res => { console.log(res) })
-  }
-  const handleGetUser = () => {
-    getUser().then(console.log);
-  }
+  const { name } = useParams<IParams>();
+  const history = useHistory();
   return (
     <div>
-      <Button onClick = {handleRequest}>Request</Button>
-      <Button danger onClick = {handleCancel}>Cancel</Button>
-      <div>{result}</div>
-      <Button onClick = {handleLogin}>Log In</Button>
-      <div> </div>
-      <Button onClick = {handleGetUser}>Get User</Button>
+      <Link to ='/' className={styles.back} >Home</Link>
+      <div className={styles.linkWrapper}>
+        {videoList.map((name: string) => <Button className={styles.link} onClick={() => history.push('/video/' + name)} key={name}>{name.toUpperCase()}</Button>)}
+      </div>
+      {name === '0' ? <img src={img} alt = 'image err' className={styles.icon}/> : <Video name={name} />}
     </div>
   );
 }

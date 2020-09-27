@@ -21,8 +21,10 @@ const DEFAULTPEOPLE: ICharacter = {
 export const getCharacterInfo = (index: number): Promise<ICharacter> => {
   return new Promise((resolve) => {
     const rtn: ICharacter = { ...DEFAULTPEOPLE };
-    axios.get(peopleUrl + index.toString())
+    console.log(peopleUrl + index.toString());
+    axios.get(peopleUrl + index.toString() + '/')
       .then(res => {
+        console.log(res.data);
         const data: ICharacter = res.data;
         rtn.gender = data.gender;
         rtn.name = data.name;

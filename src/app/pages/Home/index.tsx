@@ -43,7 +43,7 @@ const Home: React.FC = () => {
         <div></div>
         <Link to ='/log'>Log In</Link>
         <div></div>
-        <Link to ='/test'>Test</Link>
+        <Link to ='/video/0'>Videos</Link>
         <div></div>
         <Link to ='/listen'>Listen</Link>
         <div></div>

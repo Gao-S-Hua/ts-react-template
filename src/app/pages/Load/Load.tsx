@@ -6,7 +6,6 @@ import Display from './Display';
 import style from './load.scss';
 
 const Load: React.FC = () => {
-  console.log('I m in')
   const [list, setList] = useState<ICharacter[]>([]);
   const [tar, setTar] = useState<ICharacter>();
   useEffect(() => {
