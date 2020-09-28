@@ -1,0 +1,24 @@
+
+$headerheight: 64px;
+$sidewidth: 160px;
+.header{
+  background-color: #001529;
+  width: 100%;
+  height: $headerheight;
+  position: fixed;
+}
+.side{
+  margin: 64px 0 0 0;
+  height: 100%;
+  position: fixed;
+  width: $sidewidth;
+  background: #fff;
+}
+.content{
+  position: fixed;
+  width: 100%;
+  padding: 20px;
+  top: $headerheight;
+  left: $sidewidth;
+  overflow: scroll;
+}
