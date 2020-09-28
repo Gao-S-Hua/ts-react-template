@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { IAction, ActionTypes, INITACTION } from '../../../store';
@@ -32,6 +32,7 @@ const Log: React.FC = function() {
         action.type = ActionTypes.ChangeName;
         action.name = 'Huahua';
         dispatch(action);
+        message.success('Login Successful')
         setTimeout(() => { history.push('/') }, TIME_GAP * 1000);
       } else {
         setErr(true);
@@ -43,7 +44,7 @@ const Log: React.FC = function() {
       <Input placeholder = 'User Name' type = 'text' id = 'name'/>
       <Input placeholder = 'Password' type = 'password' id = 'pswd'/>
       <Button onClick = {log} className = { style.logbutton } type = 'primary'>Log In</Button> <br />
-      { jump ? <div><h3>Login Successful</h3> jumping to Home. . .</div> : null }
+      { jump ? <div> Redirecting to Home. . .</div> : null }
       { err ? <div className = { style.err }> User Name or Password Error </div> : null}
     </div>
   );

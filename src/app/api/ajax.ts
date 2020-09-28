@@ -5,9 +5,9 @@ const AUTH_KEY = 'Authorization'
 axios.interceptors.request.use(addJWT, handleError);
 
 function addJWT(request: AxiosRequestConfig) : AxiosRequestConfig {
-  const token = auth.getJWT();
-  if (token) {
-    request.headers[AUTH_KEY] = 'Bearer ' + token;
+  const authHeader = auth.getAuthHeader();
+  if (authHeader) {
+    request.headers[AUTH_KEY] = authHeader;
   }
   return request;
 }

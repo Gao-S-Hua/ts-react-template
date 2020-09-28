@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { IState, IAction, INITACTION, ActionTypes } from '../../store';
 import { Link } from 'react-router-dom';
@@ -29,6 +29,7 @@ const Home: React.FC = () => {
     action.type = ActionTypes.ChangeName;
     action.name = newName;
     dispatch(action);
+    message.success('Changed Your Name: ' + newName)
   }
   return (
     <div className = {style.home}>
@@ -46,6 +47,8 @@ const Home: React.FC = () => {
         <Link to ='/video/0'>Videos</Link>
         <div></div>
         <Link to ='/listen'>Listen</Link>
+        <div></div>
+        <Link to ='/upload'>Upload</Link>
         <div></div>
         <Button onClick = {userAuth.clearJWT}>Clear</Button>
         <BackTop />

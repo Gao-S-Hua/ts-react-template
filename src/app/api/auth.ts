@@ -12,6 +12,13 @@ export const getJWT = () : string|null => {
   } else return null;
 }
 
+export const getAuthHeader = (): string => {
+  const token = getJWT();
+  if (token) {
+    return 'Bearer ' + token;
+  } else return '';
+}
+
 export const verifyJWT = (): boolean => {
   const auth: string|null = localStorage.getItem(AUTH_KEY);
   return verify(auth);
@@ -26,5 +33,5 @@ export const clearJWT = (): void => {
   localStorage.removeItem(AUTH_KEY);
 }
 
-const userAuth = { verifyJWT, setJWT, clearJWT, getJWT };
+const userAuth = { verifyJWT, setJWT, clearJWT, getJWT, getAuthHeader };
 export default userAuth;
