@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { ICharacter, getCharacterInfo } from '../../api/swapi';
 import Char from './Char';
 import Display from './Display';
@@ -20,7 +19,6 @@ const Load: React.FC = () => {
   return (
     <div className = {style.container}>
       <div className = {style.side}>
-        <Link to = '/'>_Back_</Link>
         {
           (list.length === 0) ? <div>Loading...</div>
             : list.map((char: ICharacter) => <Char key = {char.name} char = {char} setTar = {setTar}/>)

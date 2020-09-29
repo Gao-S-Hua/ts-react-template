@@ -1,24 +1,37 @@
 
-$headerheight: 64px;
-$sidewidth: 160px;
+$headerheight: 65px;
+$sidewidth: 170px;
 .header{
   background-color: #001529;
   width: 100%;
   height: $headerheight;
-  position: fixed;
+  display: flex;
+  padding: 5px 20px;
 }
+.icon{
+  height: 55px;
+  width: 55px;
+  cursor: pointer;
+}
+.smallicon{
+  width: 14px;
+  height: 14px;
+  fill: gray
+}
+.smallicon:active{
+  fill: blue;
+}
+.title{
+  color: white;
+  margin: 7px 10px;
+  font-size: 26px;
+}
+
 .side{
-  margin: 64px 0 0 0;
-  height: 100%;
-  position: fixed;
   width: $sidewidth;
-  background: #fff;
 }
 .content{
-  position: fixed;
-  width: 100%;
-  padding: 20px;
-  top: $headerheight;
-  left: $sidewidth;
-  overflow: scroll;
+  flex-basis: 400px;
+  flex-grow: 1;
+  padding: 10px;
 }

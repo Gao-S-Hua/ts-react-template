@@ -7,7 +7,7 @@ import style from './listen.scss';
 const MAX_POINT = 30;
 
 interface IPoint {
-  temperature: number,
+  current: number,
   time: string
 }
 
@@ -20,7 +20,7 @@ function getTime(time: Date): string {
   return hour + ':' + min + ':' + sec;
 }
 
-const Listen: React.FC = function() {
+const Current: React.FC = function() {
   const [data, setData] = useState(new Array<IPoint>(0));
   const [ws, setWs] = useState<WebSocket|null>(null);
   const history = useHistory();
@@ -29,14 +29,14 @@ const Listen: React.FC = function() {
     const webSocket : WebSocket = new WebSocket('ws://' + location.host + '/record');
     setWs(webSocket);
     webSocket.onopen = () => {
-      webSocket.send('temperature');
+      webSocket.send('current');
     }
     webSocket.onmessage = (msg: MessageEvent) => {
       setData((prev) => {
         const time = new Date();
         const timeLable: string = getTime(time);
         console.log(timeLable);
-        const newPoint: IPoint = { temperature: parseFloat(msg.data), time: timeLable };
+        const newPoint: IPoint = { current: parseFloat(msg.data), time: timeLable };
         let newData: IPoint[];
         if (prev.length <= MAX_POINT) {
           newData = prev.slice();
@@ -53,7 +53,7 @@ const Listen: React.FC = function() {
 
   const scale = {
     time: { alias: 'Time' },
-    temperature: { alias: 'Temperature(C)', min: -20, max: 100 }
+    current: { alias: 'Current(A)', min: 0, max: 3 }
   }
   const label = {
     autoHide: false,
@@ -70,12 +70,12 @@ const Listen: React.FC = function() {
   }
   return (
     <div className={style.listenWrapper}>
-      <h1 className = {style.title}>Temperature Real Time Display</h1>
+      <h1 className = {style.title}>Current Real Time Display</h1>
       <Chart scale = {scale} padding={[50, 50]} autoFit height={400} width={800} data={data} >
-        <Line shape="smooth" position="time*temperature" animate={{ update: false }}/>
-        <Point position = "time*temperature" animate={{ update: false }} />
+        <Line shape="smooth" position="time*current" animate={{ update: false }}/>
+        <Point position = "time*current" animate={{ update: false }} />
         <Axis name = 'time' label = {label} title/>
-        <Axis name = 'temperature' title/>
+        <Axis name = 'current' title/>
       </Chart>
       <div></div>
       <Button className={style.btn} danger onClick = {() => { ws?.send('close'); ws?.close() }}>Stop Listen</Button>
@@ -83,4 +83,4 @@ const Listen: React.FC = function() {
     </div>
   );
 }
-export default Listen;
+export default Current;

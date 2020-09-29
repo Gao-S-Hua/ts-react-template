@@ -25,7 +25,7 @@ const UploadFile: React.FC = function() {
       <h1>Upload Your File</h1>
       <Upload {...config}>
         <Button icon={<UploadOutlined />}>Click to Upload</Button>
-      </Upload>,
+      </Upload>
     </div>
   );
 }

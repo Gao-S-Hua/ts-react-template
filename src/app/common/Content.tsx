@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './styles.scss';
-
-const Content: React.FC = function(props) {
+interface IProp{
+  children: React.ReactNode;
+}
+const Content: React.FC<IProp> = function(props: IProp) {
   return (
     <div className={styles.content}>
       {props.children}
