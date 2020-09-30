@@ -11,6 +11,9 @@ import Header from '../common/Header';
 import Side from '../common/Side';
 import Content from '../common/Content';
 import Count from '../pages/Listen/Count';
+import TestCase from '../pages/TestCase';
+import NewCase from '../pages/NewCase';
+import User from '../pages/User';
 
 const RootRouter: React.FC = () => {
   return (
@@ -20,7 +23,7 @@ const RootRouter: React.FC = () => {
         <Side />
         <Content>
           <Switch>
-            <Route path = '/' exact component = {Home} />
+            <Route path = '/uinfo' component = {User} />
             <Route path = '/load' component = {Load} />
             <Route path = '/log' component = {Log} />
             <Route path = '/video/:name' component = {Test} />
@@ -28,6 +31,9 @@ const RootRouter: React.FC = () => {
             <Route path = '/listen/cur' component = {Current} />
             <Route path = '/listen/count' component = {Count} />
             <Route path = '/upload' component = {Upload} />
+            <Route path = '/case/status' component = {TestCase} />
+            <Route path = '/case/new' component = {NewCase} />
+            <Route path = '/' exact component = {Home} />
           </Switch>
         </Content>
       </div>

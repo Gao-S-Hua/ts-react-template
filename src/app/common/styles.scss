@@ -1,7 +1,7 @@
 
 $headerheight: 65px;
 $sidewidth: 170px;
-.header{
+.headerwrap{
   background-color: #001529;
   width: 100%;
   height: $headerheight;
@@ -21,17 +21,38 @@ $sidewidth: 170px;
 .smallicon:active{
   fill: blue;
 }
+.titlewrap{
+  flex-basis: 200px;
+  flex-grow: 4;
+  display: flex;
+}
+.userwrap{
+  flex-basis: 150px;
+  flex-grow: 1;
+  display: flex;
+}
+.user{
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
 .title{
   color: white;
   margin: 7px 10px;
   font-size: 26px;
 }
+.usericon{
+  width: $headerheight - 10px;
+  fill: white;
+}
 
 .side{
   width: $sidewidth;
+  user-select: none;
 }
 .content{
   flex-basis: 400px;
   flex-grow: 1;
-  padding: 10px;
+  padding: 20px;
 }

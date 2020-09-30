@@ -85,7 +85,7 @@ module.exports = (env) => {
       historyApiFallback: true,
       proxy: {
         '/api/*': proxyConfig,
-        '/user': proxyConfig,
+        '/users': proxyConfig,
         '/media': proxyConfig,
         '/record': { target: 'http://localhost:3000', ws: true }
       }
