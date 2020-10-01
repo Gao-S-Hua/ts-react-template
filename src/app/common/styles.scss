@@ -7,6 +7,10 @@ $sidewidth: 170px;
   height: $headerheight;
   display: flex;
   padding: 5px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 .icon{
   height: 55px;
@@ -49,10 +53,15 @@ $sidewidth: 170px;
 
 .side{
   width: $sidewidth;
+  height: 100%;
   user-select: none;
+  position: fixed;
+  top: $headerheight;
+  left: 0;
 }
 .content{
   flex-basis: 400px;
   flex-grow: 1;
   padding: 20px;
+  margin: $headerheight 0 0  $sidewidth;
 }

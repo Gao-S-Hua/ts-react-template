@@ -3,7 +3,7 @@ import { Button, Input, message } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { IState, IAction, INITACTION, ActionTypes } from '../../store';
 import userAuth from '../../api/auth';
-import BackTop from '../../common/BackTop';
+// import BackTop from '../../common/BackTop';
 import style from './style.scss';
 
 const Home: React.FC = () => {
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
         <Button type = 'primary' onClick = {handleAdd}>Add Age</Button>
         <Button type= 'primary' danger onClick = {handleMin}>Add Age</Button>
         <Button onClick = {userAuth.clearJWT}>Clear</Button>
-        <BackTop />
+        {/* <BackTop /> */}
       </div>
     </div>
   );

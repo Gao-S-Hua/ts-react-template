@@ -16,6 +16,7 @@ const BackTop: React.FC = function() {
     return () => { window.removeEventListener('scroll', debouncedScroll) }
   }, [])
   const handleBackTop = () => {
+    console.log('clicked');
     window.scrollTo(0, 0);
   }
   return (

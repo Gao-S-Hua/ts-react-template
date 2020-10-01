@@ -14,7 +14,7 @@ import Count from '../pages/Listen/Count';
 import TestCase from '../pages/TestCase';
 import NewCase from '../pages/NewCase';
 import User from '../pages/User';
-
+import BackTop from '../common/BackTop';
 const RootRouter: React.FC = () => {
   return (
     <BrowserRouter>
@@ -36,6 +36,7 @@ const RootRouter: React.FC = () => {
             <Route path = '/' exact component = {Home} />
           </Switch>
         </Content>
+        <BackTop />
       </div>
     </BrowserRouter>
   );

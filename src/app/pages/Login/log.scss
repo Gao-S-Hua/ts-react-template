@@ -7,6 +7,7 @@
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 2;
 }
 
 .logo{
@@ -43,7 +44,7 @@
 .logpanel{
   width: 400px;
   background-color: white;
-  margin: 80px auto;
+  margin: 40px auto;
   border-radius: 15px;
   padding: 50px 20px;
   box-shadow: 3px 5px gray;
