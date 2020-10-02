@@ -16,6 +16,10 @@ $sidewidth: 170px;
   height: 55px;
   width: 55px;
   cursor: pointer;
+  transition: 0.5s;
+}
+.icon:hover{
+  transform: rotate(90deg);
 }
 .smallicon{
   width: 14px;

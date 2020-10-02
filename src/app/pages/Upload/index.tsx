@@ -3,6 +3,7 @@ import { Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import styles from './upload.scss';
 import { getAuthHeader } from '../../api/auth'
+import { UploadChangeParam } from 'antd/lib/upload';
 
 const config = {
   name: 'userfile',
@@ -11,7 +12,7 @@ const config = {
   headers: {
     authorization: getAuthHeader()
   },
-  onChange(info: any) {
+  onChange(info: UploadChangeParam) {
     if (info.file.status === 'done') {
       message.success(`${info.file.name} file uploaded successfully`);
     } else if (info.file.status === 'error') {
