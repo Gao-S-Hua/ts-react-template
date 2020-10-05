@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './styles.scss';
 import { useHistory } from 'react-router-dom';
-import icon from '../../assets/icon.png';
-import user from '../../assets/user.svg';
+import icon from '../../../assets/icon.png';
+import user from '../../../assets/user.svg';
 
 const Header: React.FC = function() {
   const history = useHistory();

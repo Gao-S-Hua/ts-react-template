@@ -2,6 +2,7 @@
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
@@ -15,6 +16,7 @@ const proxyConfig = {
 
 module.exports = (env) => {
   console.log('Running with ' + env.mode + ' Mode');
+  // const debug = env.mode === 'development';
   return {
     entry: resolve('./src/index'),
     mode: env.mode,
@@ -76,6 +78,20 @@ module.exports = (env) => {
         filename: 'css/[name].[hash:4].css',
         chunkFilename: 'css/[id].[chunkhash:4].css',
         ignoreOrder: false
+      }),
+      new UglifyJsPlugin({
+        test: /\.js($|\?)/i,
+        exclude: /\.min.js$/,
+        parallel: true,
+        uglifyOptions: {
+          compress: {
+            unused: true,
+            drop_console: true
+          },
+          output: {
+            comments: false
+          }
+        }
       })
     ],
     devServer: {

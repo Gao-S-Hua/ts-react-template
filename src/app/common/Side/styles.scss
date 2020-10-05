@@ -1,0 +1,9 @@
+@import "../styles.scss";
+.side{
+  width: $sidewidth;
+  height: 100%;
+  user-select: none;
+  position: fixed;
+  top: $headerheight;
+  left: 0;
+}

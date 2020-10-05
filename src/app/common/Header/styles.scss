@@ -1,0 +1,52 @@
+@import "../styles.scss";
+.headerwrap{
+  background-color: #001529;
+  width: 100%;
+  height: $headerheight;
+  display: flex;
+  padding: 5px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.titlewrap{
+  flex-basis: 200px;
+  flex-grow: 4;
+  display: flex;
+}
+
+.icon{
+  height: 55px;
+  width: 55px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.icon:hover{
+  transform: rotate(90deg);
+}
+
+.title{
+  color: white;
+  margin: 7px 10px;
+  font-size: 26px;
+}
+
+
+.userwrap{
+  flex-basis: 150px;
+  flex-grow: 1;
+  display: flex;
+}
+.user{
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.usericon{
+  width: $headerheight - 10px;
+  fill: white;
+}

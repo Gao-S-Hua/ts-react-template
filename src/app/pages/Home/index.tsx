@@ -3,16 +3,18 @@ import { Button, Input, message } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { IState, IAction, INITACTION, ActionTypes } from '../../store';
 import userAuth from '../../api/auth';
-// import BackTop from '../../common/BackTop';
+import { useHistory } from 'react-router-dom';
 import style from './style.scss';
 
 const Home: React.FC = () => {
   const { age, userId, userName } = useSelector((state: IState) => state);
   const [newName, setNewName] = useState('');
   const dispatch = useDispatch();
+  const history = useHistory();
   const handleAdd = () => {
     const action: IAction = { ...INITACTION };
     action.type = ActionTypes.Add;
+    console.log('Add Test');
     dispatch(action);
   }
   const handleMin = () => {
@@ -40,6 +42,7 @@ const Home: React.FC = () => {
         <Button type = 'primary' onClick = {handleAdd}>Add Age</Button>
         <Button type= 'primary' danger onClick = {handleMin}>Add Age</Button>
         <Button onClick = {userAuth.clearJWT}>Clear</Button>
+        <Button onClick = {() => history.push('/case/new')}> Test </Button>
         {/* <BackTop /> */}
       </div>
     </div>

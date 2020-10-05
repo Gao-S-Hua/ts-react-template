@@ -17,7 +17,7 @@ const Authorization: React.FC<IProps> = (props: IProps) => {
     <div>
       <h2>No Authorization</h2>
       Please login<br></br>
-      {/* <Link to = '/log' >Log In</Link> */}
+      <Link to = '/log' >Log In</Link>
     </div>
   )
 }

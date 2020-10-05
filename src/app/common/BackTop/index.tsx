@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { debounce } from '../util';
+import { debounce } from '../../util';
 import style from './backtop.scss';
-import img from '../../assets/top.svg';
+import img from '../../../assets/top.svg';
 
 const BackTop: React.FC = function() {
   const [show, setShow] = useState(false);

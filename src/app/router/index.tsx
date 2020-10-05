@@ -15,6 +15,9 @@ import TestCase from '../pages/TestCase';
 import NewCase from '../pages/NewCase';
 import User from '../pages/User';
 import BackTop from '../common/BackTop';
+import CaseInfo from '../pages/CaseInfo';
+import Error from '../pages/Error';
+
 const RootRouter: React.FC = () => {
   return (
     <BrowserRouter>
@@ -34,7 +37,10 @@ const RootRouter: React.FC = () => {
             <Route path = '/upload' component = {Upload} />
             <Route path = '/case/status' component = {TestCase} />
             <Route path = '/case/new' component = {NewCase} />
+            <Route path = '/case/info/:id' component = {CaseInfo} />
+            <Route path = '/case/info/' component = {CaseInfo} />
             <Route path = '/' exact component = {Home} />
+            <Route path ='/' component = {Error} />
           </Switch>
         </Content>
         <BackTop />

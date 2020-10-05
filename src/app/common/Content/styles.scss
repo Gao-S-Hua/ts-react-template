@@ -1,0 +1,8 @@
+
+@import "../styles.scss";
+.content{
+  flex-basis: 400px;
+  flex-grow: 1;
+  padding: 20px;
+  margin: $headerheight 0 0  $sidewidth;
+}

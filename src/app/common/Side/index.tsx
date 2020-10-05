@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter, RouteComponentProps } from 'react-router-dom';
 import {
   HomeOutlined, FileOutlined, VideoCameraOutlined, UserOutlined, ContainerOutlined, BarChartOutlined,
   LineChartOutlined, TeamOutlined, FireOutlined, BulbOutlined, PlusCircleOutlined, SnippetsOutlined
@@ -9,25 +9,25 @@ import styles from './styles.scss';
 
 const { SubMenu } = Menu;
 
-const getActive = (): string => {
-  const path = window.location.pathname;
+const getActive = (path: string): string => {
   if (path.includes('uinfo')) return '2';
   if (path.includes('video')) return '3';
   if (path.includes('upload')) return '4';
   if (path.includes('load')) return '5';
   if (path.includes('/case/status')) return 'sub01';
   if (path.includes('/case/new')) return 'sub02';
+  if (path.includes('/case/info')) return 'sub0';
   if (path.includes('/listen/temp')) return 'sub11';
   if (path.includes('/listen/cur')) return 'sub12';
   if (path.includes('/listen/count')) return 'sub13';
   return '1';
 }
 
-const Side: React.FC = function() {
+const Side: React.FC<RouteComponentProps> = function(props: RouteComponentProps) {
   const history = useHistory();
   return (
     <div className={styles.side}>
-      <Menu mode="inline" defaultSelectedKeys={[getActive()]} style={{ width: '100%', height: '100%' }}>
+      <Menu mode="inline" selectedKeys={[getActive(props.location.pathname)]} style={{ width: '100%', height: '100%' }}>
         <Menu.Item key="1" icon={<HomeOutlined />} onClick={() => history.push('/')}>Home</Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />} onClick={() => history.push('/uinfo')}>User</Menu.Item>
         <Menu.Item key="3" icon={<VideoCameraOutlined />} onClick={() => history.push('/video')}>Video</Menu.Item>
@@ -47,4 +47,4 @@ const Side: React.FC = function() {
   )
 }
 
-export default Side;
+export default withRouter(Side);
