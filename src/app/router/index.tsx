@@ -5,7 +5,7 @@ import Load from '../pages/Load';
 import Log from '../pages/Login';
 import Listen from '../pages/Listen';
 import Current from '../pages/Listen/Current';
-import Test from '../pages/Test';
+import Video from '../pages/Video';
 import Upload from '../pages/Upload';
 import Header from '../common/Header';
 import Side from '../common/Side';
@@ -26,7 +26,8 @@ const RootRouter: React.FC = () => {
             <Route path = '/uinfo' component = {User} />
             <Route path = '/load' component = {Load} />
             <Route path = '/log' component = {Log} />
-            <Route path = '/video/:name' component = {Test} />
+            <Route path = '/video/:name' component = {Video} />
+            <Route path = '/video' component = {Video} />
             <Route path = '/listen/temp' component = {Listen} />
             <Route path = '/listen/cur' component = {Current} />
             <Route path = '/listen/count' component = {Count} />

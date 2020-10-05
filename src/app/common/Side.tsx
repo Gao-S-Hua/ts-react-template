@@ -30,7 +30,7 @@ const Side: React.FC = function() {
       <Menu mode="inline" defaultSelectedKeys={[getActive()]} style={{ width: '100%', height: '100%' }}>
         <Menu.Item key="1" icon={<HomeOutlined />} onClick={() => history.push('/')}>Home</Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />} onClick={() => history.push('/uinfo')}>User</Menu.Item>
-        <Menu.Item key="3" icon={<VideoCameraOutlined />} onClick={() => history.push('/video/0')}>Video</Menu.Item>
+        <Menu.Item key="3" icon={<VideoCameraOutlined />} onClick={() => history.push('/video')}>Video</Menu.Item>
         <Menu.Item key="4" icon={<FileOutlined />} onClick={() => history.push('/upload')}>Upload</Menu.Item>
         <Menu.Item key="5" icon={<TeamOutlined />} onClick={() => history.push('/load')}>Team</Menu.Item>
         <SubMenu key='sub0' icon={<ContainerOutlined />} title='Test Case'>

@@ -2,12 +2,14 @@ import axios, { AxiosRequestConfig, Canceler, AxiosInstance } from 'axios';
 import auth from './auth';
 
 const AUTH_KEY = 'Authorization'
-axios.interceptors.request.use(addJWT, handleError);
+const myAxios = axios.create();
+myAxios.interceptors.request.use(addJWT, handleError);
 
 function addJWT(request: AxiosRequestConfig) : AxiosRequestConfig {
   const authHeader = auth.getAuthHeader();
   if (authHeader) {
     request.headers[AUTH_KEY] = authHeader;
+    request.url = '/api' + request.url;
   }
   return request;
 }
@@ -16,6 +18,8 @@ function handleError(err: unknown) {
   // handle err here
   return Promise.reject(err);
 }
+
+export default myAxios;
 
 // ajax request which can cancel
 const CancelToken = axios.CancelToken;
@@ -27,5 +31,3 @@ export class NewAjax {
     this.ajax = ajaxRequest;
   }
 }
-
-export default axios;
