@@ -30,7 +30,8 @@ const Log: React.FC = function() {
         setJump(true);
         const action: IAction = { ...INITACTION };
         action.type = ActionTypes.ChangeName;
-        action.name = 'Huahua';
+        action.name = res.data.data.name;
+        action.userType = res.data.data.type;
         dispatch(action);
         message.success('Login Successful')
         setTimeout(() => { history.push('/') }, TIME_GAP * 1000);

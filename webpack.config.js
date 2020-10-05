@@ -14,9 +14,38 @@ const proxyConfig = {
   changeOrigin: true
 }
 
+let plugins = [
+  // eslint-disable-next-line new-cap
+  new htmlWebpackPlugin({
+    template: resolve('./src/assets/index.html'),
+    title: 'Shao Management',
+    favicon: resolve('./src/assets/icon.png')
+  }),
+  new MiniCssExtractPlugin({
+    filename: 'css/[name].[hash:4].css',
+    chunkFilename: 'css/[id].[chunkhash:4].css',
+    ignoreOrder: false
+  }),
+  new UglifyJsPlugin({
+    test: /\.js($|\?)/i,
+    exclude: /\.min.js$/,
+    parallel: true,
+    uglifyOptions: {
+      compress: {
+        unused: true,
+        drop_console: true
+      },
+      output: {
+        comments: false
+      }
+    }
+  })
+];
+
 module.exports = (env) => {
   console.log('Running with ' + env.mode + ' Mode');
-  // const debug = env.mode === 'development';
+  const debug = env.mode === 'development';
+  if (debug) plugins = plugins.filter(obj => !(obj == null));
   return {
     entry: resolve('./src/index'),
     mode: env.mode,
@@ -67,33 +96,7 @@ module.exports = (env) => {
         }
       ]
     },
-    plugins: [
-      // eslint-disable-next-line new-cap
-      new htmlWebpackPlugin({
-        template: resolve('./src/assets/index.html'),
-        title: 'Shao Management',
-        favicon: resolve('./src/assets/icon.png')
-      }),
-      new MiniCssExtractPlugin({
-        filename: 'css/[name].[hash:4].css',
-        chunkFilename: 'css/[id].[chunkhash:4].css',
-        ignoreOrder: false
-      }),
-      new UglifyJsPlugin({
-        test: /\.js($|\?)/i,
-        exclude: /\.min.js$/,
-        parallel: true,
-        uglifyOptions: {
-          compress: {
-            unused: true,
-            drop_console: true
-          },
-          output: {
-            comments: false
-          }
-        }
-      })
-    ],
+    plugins: plugins,
     devServer: {
       contentBase: path.join(__dirname, 'dist'),
       port: 8000,

@@ -3,7 +3,8 @@ import { IAction, IState, ActionTypes } from './index';
 const defaultState: IState = {
   userId: '3722',
   userName: '',
-  age: 28
+  age: 28,
+  type: 0
 }
 
 const reducer = (state: IState = defaultState, action: IAction) : IState => {
@@ -19,6 +20,11 @@ const reducer = (state: IState = defaultState, action: IAction) : IState => {
     }
     case ActionTypes.ChangeName: {
       newState.userName = action.name;
+      return newState;
+    }
+    case ActionTypes.UserInfo: {
+      newState.userName = action.name;
+      newState.type = action.userType;
       return newState;
     }
   }
