@@ -12,8 +12,8 @@
 }
 
 .titlewrap{
-  flex-basis: 200px;
-  flex-grow: 4;
+  flex-basis: 150px;
+  flex-grow: 2;
   display: flex;
 }
 
@@ -33,6 +33,10 @@
   font-size: 26px;
 }
 
+.searchwrap{
+  flex-basis: 150px;
+  flex-grow: 1;
+}
 
 .userwrap{
   flex-basis: 150px;
@@ -50,3 +54,4 @@
   width: $headerheight - 10px;
   fill: white;
 }
+

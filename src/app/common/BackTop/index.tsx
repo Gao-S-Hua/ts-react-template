@@ -10,7 +10,7 @@ const BackTop: React.FC = function() {
     if (window.scrollY > 50) setShow(true);
     else setShow(false);
   }
-  const debouncedScroll: any = debounce(handleScroll, 100);
+  const debouncedScroll = debounce(handleScroll, 100);
   useEffect(() => {
     window.addEventListener('scroll', debouncedScroll);
     return () => { window.removeEventListener('scroll', debouncedScroll) }

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './styles.scss';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from '../../api/ajax';
-import { IAction, ActionTypes, IState } from '../../store'
+import { IAction, ActionTypes, IState } from '../../store';
+import Search from './components/Search';
 import icon from '../../../assets/icon.png';
 import user from '../../../assets/user.svg';
 
@@ -28,6 +29,8 @@ const Header: React.FC = function() {
         <img src={icon} className={styles.icon} onClick={() => { history.push('/') }}/>
         <h1 className={styles.title}>SH Management</h1>
       </div>
+      <div className={styles.searchwrap}><Search /></div>
+      <div className={styles.searchwrap}></div>
       <div className={styles.userwrap} >
         <img src={user} className={styles.usericon} />
         <div className={styles.user} onClick={() => { history.push('/log') }}>

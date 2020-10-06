@@ -1,6 +1,6 @@
-
 type IFn = () => void;
-function debounceWrapper(fn: IFn, time: number): unknown {
+
+function debounceWrapper(fn: IFn, time: number): IFn {
   let timer: NodeJS.Timeout | null = null;
   return function(...arg: []): void {
     const _arg = arg;

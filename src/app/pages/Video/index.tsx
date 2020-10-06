@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 import axios from '../../api/ajax';
 import Video from './Video';
@@ -30,9 +30,9 @@ const Test: React.FC = () => {
   }, [])
   return (
     <div>
-      <Link to ='/' className={styles.back} >Home</Link>
+      <h1>Online Video</h1>
       {
-        load ? 'Loading'
+        load ? <div className={styles.linkWrapper}>Loading...</div>
           : <div className={styles.linkWrapper}>
             {videoList.map((name: string) =>
               <Button className={styles.link}
