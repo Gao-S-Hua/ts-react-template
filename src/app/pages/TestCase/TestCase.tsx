@@ -6,9 +6,9 @@ import styles from './styles.scss';
 
 const { TabPane } = Tabs;
 
-interface ICase {
-  key: string;
-  name: string;
+export interface ICase {
+  caseId: string;
+  caseName: string;
   ownerName: string;
   ownerId: string;
   progress: number;
@@ -17,14 +17,14 @@ interface ICase {
   data: number[];
 }
 
-const progressTag = (text: number): React.ReactNode => {
+export const progressTag = (text: number): React.ReactNode => {
   switch (text) {
     case -1: return (<Tag color='volcano'>Rejected</Tag>);
     case 0: return (<Tag color='green'>Finished</Tag>);
     case 1: return (<Tag color='geekblue'>In Progress</Tag>);
   }
 }
-const rejectReason = (text: string): string => {
+export const rejectReason = (text: string): string => {
   if (text.length > 0) return text;
   return '-'
 }
@@ -40,8 +40,8 @@ const ProtectedTestCase: React.FC = () => {
     return <div className={styles.caseid} onClick={() => { history.push('/case/info/' + text) }} >{text}</div>
   }
   const columns = [
-    { title: 'Test ID', dataIndex: 'key', key: 'key', render: caseRender },
-    { title: 'Testcase Name', dataIndex: 'caseName', key: 'name' },
+    { title: 'Test ID', dataIndex: 'caseId', key: 'caseId', render: caseRender },
+    { title: 'Testcase Name', dataIndex: 'caseName', key: 'caseName' },
     { title: 'Owner', dataIndex: 'ownerName', key: 'ownerId' },
     { title: 'Platform', dataIndex: 'platform', key: 'platform', render: platform },
     { title: 'Progress', dataIndex: 'progress', key: 'progress', render: progressTag },
@@ -50,9 +50,9 @@ const ProtectedTestCase: React.FC = () => {
   useEffect(() => {
     axios.get('/case/mycase').then((res) => {
       const list = res.data;
-      for (let i = 0; i < list.length; i++) {
-        list[i].key = list[i].caseId;
-      }
+      // for (let i = 0; i < list.length; i++) {
+      //   list[i].caseId = list[i].caseId;
+      // }
       setCaseList(list);
     })
   }, [])

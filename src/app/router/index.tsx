@@ -15,7 +15,7 @@ import TestCase from '../pages/TestCase';
 import NewCase from '../pages/NewCase';
 import User from '../pages/User';
 import BackTop from '../common/BackTop';
-import CaseInfo from '../pages/CaseInfo';
+import CaseInfo from '../pages/TestCase/CaseInfo';
 import Error from '../pages/Error';
 
 const RootRouter: React.FC = () => {

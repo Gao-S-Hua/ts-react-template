@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run": "webpack-dev-server --env.mode=development --hot",
-    "build": "webpack --env.mode=production --colors --progress"
+    "run": "webpack-dev-server --env.mode=development --hot --config ./scripts/webpack.server.js",
+    "build": "webpack --env.mode=production --colors --progress --config ./scripts/webpack.build.js"
   },
   "keywords": [],
   "author": "",
@@ -43,7 +43,8 @@
     "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.4"
   },
   "dependencies": {
     "antd": "^4.6.2",

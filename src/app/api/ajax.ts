@@ -9,8 +9,8 @@ function addJWT(request: AxiosRequestConfig) : AxiosRequestConfig {
   const authHeader = auth.getAuthHeader();
   if (authHeader) {
     request.headers[AUTH_KEY] = authHeader;
-    request.url = '/api' + request.url;
   }
+  request.url = '/api' + request.url;
   return request;
 }
 
