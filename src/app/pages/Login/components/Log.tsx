@@ -20,7 +20,7 @@ const Log: React.FC = function() {
     const pswdNode = document.getElementById('pswd') as HTMLInputElement;
     const name = nameNode ? nameNode.value : '';
     const pswd = pswdNode ? pswdNode.value : '';
-    axios.post('/users', {
+    axios.post('/users/login', {
       name: name,
       password: pswd
     }).then((res) => {
@@ -29,7 +29,7 @@ const Log: React.FC = function() {
         setJWT(res.data.data.token);
         setJump(true);
         const action: IAction = { ...INITACTION };
-        action.type = ActionTypes.ChangeName;
+        action.type = ActionTypes.UserInfo;
         action.name = res.data.data.name;
         action.userType = res.data.data.type;
         dispatch(action);

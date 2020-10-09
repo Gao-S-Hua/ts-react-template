@@ -19,12 +19,13 @@ const reducer = (state: IState = defaultState, action: IAction) : IState => {
       return newState;
     }
     case ActionTypes.ChangeName: {
-      newState.userName = action.name;
+      newState.userName = action.name ? action.name : '';
       return newState;
     }
     case ActionTypes.UserInfo: {
-      newState.userName = action.name;
-      newState.type = action.userType;
+      newState.userName = action.name ? action.name : '';
+      newState.type = action.userType === undefined ? -1 : action.userType;
+      console.log(newState.type);
       return newState;
     }
   }

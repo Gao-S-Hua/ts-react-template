@@ -33,7 +33,7 @@ const Header: React.FC = function() {
       <div className={styles.searchwrap}></div>
       <div className={styles.userwrap} >
         <img src={user} className={styles.usericon} />
-        <div className={styles.user} onClick={() => { history.push('/log') }}>
+        <div className={styles.user} onClick={() => { userName.length === 0 ? history.push('/log') : history.push('/uinfo') }}>
           {userName.length === 0 ? 'Sign In / Sign Up' : userName}
         </div>
       </div>

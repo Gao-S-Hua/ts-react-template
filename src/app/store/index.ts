@@ -12,9 +12,9 @@ export enum ActionTypes {
 
 export interface IAction {
   type: ActionTypes;
-  name: string;
-  num: number;
-  userType: number;
+  name?: string;
+  num?: number;
+  userType?: number;
 }
 
 export interface IState {

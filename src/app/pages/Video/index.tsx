@@ -15,7 +15,6 @@ const Test: React.FC = () => {
   const history = useHistory();
   const [load, setLoad] = useState<boolean>(true);
   const [videoList, setVideoList] = useState<string[]>([]);
-  console.log('name:' + name);
   useEffect(() => {
     axios.get('/video/list')
       .then((res) => {

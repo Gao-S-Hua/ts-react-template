@@ -4,7 +4,7 @@ import User from './User';
 
 const ProtectedUser: React.FC = () => {
   return (
-    <Authorization enable={false}>
+    <Authorization enable>
       <User />
     </Authorization>
   );
