@@ -37,7 +37,7 @@ function caseToItem(caseInfo: ICase, keyWord: string) {
   );
 }
 
-const Result: React.FC<IProps> = function(props: IProps) {
+const Result: React.FC<IProps> = function(props) {
   return (
     <div className={styles.resultwrap}>
       <List bordered size='small'>

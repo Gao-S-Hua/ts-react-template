@@ -4,7 +4,7 @@ interface IProps {
   name: string
 }
 
-const Video: React.FC<IProps> = (props: IProps) => {
+const Video: React.FC<IProps> = (props) => {
   const videoEl: React.MutableRefObject<HTMLVideoElement | null> = useRef(null);
   useEffect(() => {
     console.log('load');

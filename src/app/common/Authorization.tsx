@@ -4,10 +4,9 @@ import userAuth from '../api/auth';
 
 interface IProps {
   enable: boolean;
-  children: React.ReactNode|null;
 }
 
-const Authorization: React.FC<IProps> = (props: IProps) => {
+const Authorization: React.FC<IProps> = function(props) {
   if (!props.enable || userAuth.verifyJWT()) {
     return (
       <div> {props.children} </div>

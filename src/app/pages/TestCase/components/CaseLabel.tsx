@@ -6,7 +6,7 @@ interface IProps {
   caseInfo: ICase
 }
 const { Item } = Descriptions;
-const CaseLabel:React.FC<IProps> = function(props: IProps) {
+const CaseLabel:React.FC<IProps> = function(props) {
   const caseInfo = props.caseInfo;
   return (
     <div>

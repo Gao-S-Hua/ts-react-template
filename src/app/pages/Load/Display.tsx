@@ -5,7 +5,7 @@ interface IProps {
   char: ICharacter
 }
 
-const Display: React.FC<IProps> = (props: IProps) => {
+const Display: React.FC<IProps> = (props) => {
   const char:ICharacter = props.char;
   return (
     <div className = {style.tag}>

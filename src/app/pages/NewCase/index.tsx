@@ -4,7 +4,7 @@ import NewCase from './NewCase';
 
 const ProtectedNewCase: React.FC = () => {
   return (
-    <Authorization enable={false}>
+    <Authorization enable>
       <NewCase />
     </Authorization>
   );

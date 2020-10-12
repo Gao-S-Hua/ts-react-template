@@ -52,10 +52,6 @@ const ProtectedTestCase: React.FC = () => {
   useEffect(() => {
     axios.get('/case/mycase').then((res) => {
       const list = res.data;
-      // for (let i = 0; i < list.length; i++) {
-      //   list[i].caseId = list[i].caseId;
-      // }
-      console.log(list);
       setCaseList(list);
     })
   }, [])

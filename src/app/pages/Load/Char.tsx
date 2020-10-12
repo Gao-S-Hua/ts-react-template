@@ -6,7 +6,7 @@ interface IProps {
   setTar(ch: ICharacter): void
 }
 
-const Char: React.FC<IProps> = (props: IProps) => {
+const Char: React.FC<IProps> = (props) => {
   const char:ICharacter = props.char;
   return (
     <div onClick = {char.gender === 'n/a' ? () => { alert('Invalid Character') } : () => props.setTar(props.char) }>

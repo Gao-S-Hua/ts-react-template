@@ -4,6 +4,7 @@ import { UploadOutlined, LoadingOutlined } from '@ant-design/icons';
 import { getAuthHeader } from '../../api/auth';
 import styles from './styles.scss';
 import { Platform, Size } from './constants';
+import axios from '../../api/ajax';
 import { UploadChangeParam } from 'antd/lib/upload';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { UploadFile } from 'antd/lib/upload/interface';
@@ -52,6 +53,7 @@ const NewCase: React.FC = () => {
       return true;
     }
   }
+
   const check = function(): boolean {
     if (testName.length === 0) {
       message.error('Test Name: cannot be empty');
@@ -64,11 +66,19 @@ const NewCase: React.FC = () => {
     }
     return true;
   }
-  const handelClick = function() {
-    if (check()) {
-      setWait(true);
-      setTimeout(() => { setWait(false); message.success('Test Case Submitted Success!') }, 2000);
-    }
+
+  const handleSubmit = () => {
+    if (!check()) return;
+    const newCaseInfo = {
+      testName,
+      platform,
+      testTime
+    };
+    setWait(true);
+    axios.post('/case/newcase', newCaseInfo)
+      .then(() => { message.success('Test Case Submitted Success!') })
+      .catch(() => { message.error('Test case Rejected by Server') })
+      .finally(() => setWait(false));
   }
   return (
     <div>
@@ -109,7 +119,7 @@ const NewCase: React.FC = () => {
           </Radio.Group>
         </Form.Item>
         <Form.Item {...tailLayout}>
-          <Button type='primary' onClick={handelClick} disabled={wait}>{wait ? <div>Waiting <LoadingOutlined /></div> : 'Submit'}</Button>
+          <Button type='primary' onClick={handleSubmit} disabled={wait}>{wait ? <div>Waiting <LoadingOutlined /></div> : 'Submit'}</Button>
         </Form.Item>
       </Form>
     </div>
