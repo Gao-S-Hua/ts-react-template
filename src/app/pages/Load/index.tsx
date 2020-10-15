@@ -4,7 +4,7 @@ import Load from './Load';
 
 const ProtectedLoad: React.FC = () => {
   return (
-    <Authorization enable>
+    <Authorization enable={false}>
       <Load />
     </Authorization>
   );

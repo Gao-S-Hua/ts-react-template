@@ -1,18 +1,18 @@
 @mixin charbase($color){
   white-space: pre;
-  margin: 10px;
-  border-radius: 5px;
-  border: solid 3px $color;
-  width: 200px;
+  margin: 3px;
+  // border-radius: 22px;
+  // border: solid 2px $color;
+  width: 180px;
 }
 
 .char {
-  @include charbase(blue);
+  @include charbase(#1890ff);
   cursor: pointer;
 }
 
 .error{
-  @include charbase(red);
+  @include charbase(#fa541c);
 }
 
 .char:hover {
@@ -24,11 +24,15 @@
   display: flex;
 }
 .side {
-  flex: 1;
+  flex: 0;
+  flex-basis: 100px;
+  border-right: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  user-select: none;
 }
 
 .dis{
-  flex: 3;
+  flex: 1;
 
 }
 
@@ -37,18 +41,29 @@
   height: 300px;
   width: 500px;
   border-radius: 10px;
-  border: purple 5px dashed;
-  white-space: pre;
   font-size: 30px;
-  color: blue;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.tagin{
-  margin: 5px;
-  padding: 5px;
-  border: blue 3px solid;
-  overflow-wrap: normal;
+.user{
+  color: #e6f7ff;
+  background-color: #1890ff;
+  margin: 3px;
+}
+.invalidUser{
+  color: white;
+  background-color: #cccccc;
+  margin: 3px;
+}
+.female{
+  color: white;
+  background-color: rgb(245, 106, 0);
+  margin: 3px;
+}
+.card{
+  width: 300px;
+  height: 300px;
+  box-shadow: 5px 5px 5px 0 rgba(100, 100, 100, 0.2);
 }

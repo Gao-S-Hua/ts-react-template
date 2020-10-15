@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
-import { Chart, Line, Point, Axis } from 'bizcharts';
+import { Chart, Axis, LineAdvance } from 'bizcharts';
 import style from './listen.scss';
 
-const MAX_POINT = 30;
+const MAX_POINT = 25;
 
 interface IPoint {
   temperature: number,
@@ -72,8 +72,8 @@ const Listen: React.FC = function() {
     <div className={style.listenWrapper}>
       <h1 className = {style.title}>Temperature Real Time Display</h1>
       <Chart scale = {scale} padding={[50, 50]} autoFit height={400} width={800} data={data} >
-        <Line shape="smooth" position="time*temperature" animate={{ update: false }}/>
-        <Point position = "time*temperature" animate={{ update: false }} />
+        <LineAdvance shape="smooth" point area position="time*temperature" animate={{ update: false }}/>
+        {/* <Point position = "time*temperature" animate={{ update: false }} /> */}
         <Axis name = 'time' label = {label} title/>
         <Axis name = 'temperature' title/>
       </Chart>

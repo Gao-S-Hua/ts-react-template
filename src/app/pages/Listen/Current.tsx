@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Chart, Line, Point, Axis } from 'bizcharts';
 import style from './listen.scss';
 
-const MAX_POINT = 30;
+const MAX_POINT = 25;
 
 interface IPoint {
   current: number,

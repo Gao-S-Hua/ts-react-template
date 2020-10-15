@@ -14,20 +14,25 @@ const Load: React.FC = () => {
     }
     Promise.all(requestList).then((res: ICharacter[]) => {
       setList(res);
-    })
+    }).catch(
+      () => { setList([]) }
+    )
   }, [])
   return (
-    <div className = {style.container}>
-      <div className = {style.side}>
-        {
-          (list.length === 0) ? <div>Loading...</div>
-            : list.map((char: ICharacter) => <Char key = {char.name} char = {char} setTar = {setTar}/>)
-        }
-      </div>
-      <div className = {style.dis}>
-        {
-          (tar) ? <Display char = {tar}/> : null
-        }
+    <div>
+      <h2>Team Members</h2>
+      <div className = {style.container}>
+        <div className = {style.side}>
+          {
+            (list.length === 0) ? <div>Loading...</div>
+              : list.map((char: ICharacter) => <Char key = {char.name} char = {char} setTar = {setTar}/>)
+          }
+        </div>
+        <div className = {style.dis}>
+          {
+            (tar) ? <Display char = {tar}/> : null
+          }
+        </div>
       </div>
     </div>
   );
